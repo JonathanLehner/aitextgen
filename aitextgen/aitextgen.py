@@ -748,7 +748,9 @@ class aitextgen:
 
         if n_gpu > 1:
             train_params["distributed_backend"] = "ddp"
-
+    
+        print("751")
+        print(train_params)
         trainer = pl.Trainer(**train_params)
         trainer.fit(train_model)
 
