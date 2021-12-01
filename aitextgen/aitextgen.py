@@ -750,6 +750,8 @@ class aitextgen:
             train_params["distributed_backend"] = "ddp"
     
         print("751")
+        train_params["amp_level"] = 'O1'
+        train_params["amp_backend"] = "native"
         print(train_params)
         trainer = pl.Trainer(**train_params)
         trainer.fit(train_model)
