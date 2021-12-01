@@ -731,26 +731,9 @@ class aitextgen:
             plugins=deepspeed_plugin,
         )
 
-        if fp16:
-            train_params["precision"] = 32 #16 if fp16 else 32
-            train_params["amp_level"] = fp16_opt_level
-            train_params["amp_backend"] = "native"
-
-        if tpu_cores > 0:
-            train_params["tpu_cores"] = tpu_cores
-            train_params["gpus"] = 0
-            n_gpu = 0
-
-        # benchmark gives a boost for GPUs if input size is constant,
-        # which will always be the case with aitextgen training
-        if is_gpu_used and benchmark:
-            train_params["benchmark"] = True
-
-        if n_gpu > 1:
-            train_params["distributed_backend"] = "ddp"
-    
-        print("752")
+        print("753")
         print(train_params)
+        train_params["precision"] = 16
         train_params["amp_level"] = None
         train_params["amp_backend"] = "native"
         print(train_params)
