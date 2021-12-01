@@ -15,7 +15,7 @@ from pytorch_lightning.plugins import DeepSpeedPlugin
 from tqdm.auto import trange
 from transformers import (
     AutoConfig,
-    AutoModelForCausalLM,751
+    AutoModelForCausalLM,
     AutoTokenizer,
     GPT2Config,
     GPT2LMHeadModel,
