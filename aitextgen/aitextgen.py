@@ -15,7 +15,7 @@ from pytorch_lightning.plugins import DeepSpeedPlugin
 from tqdm.auto import trange
 from transformers import (
     AutoConfig,
-    AutoModelForCausalLM,
+    AutoModelForCausalLM,751
     AutoTokenizer,
     GPT2Config,
     GPT2LMHeadModel,
@@ -750,10 +750,12 @@ class aitextgen:
             train_params["distributed_backend"] = "ddp"
     
         print("751")
+        print(train_params)
         train_params["amp_level"] = 'O1'
         train_params["amp_backend"] = "native"
         print(train_params)
-        trainer = pl.Trainer(**train_params)
+        print("xxx")
+        trainer = pl.Trainer(**train_params, amp_backend="native", amp_level="O1")
         trainer.fit(train_model)
 
         logger.info(f"Saving trained model pytorch_model.bin to /{output_dir}")
