@@ -732,9 +732,9 @@ class aitextgen:
         )
 
         if fp16:
-            train_params["precision"] = 16 if fp16 else 32
+            train_params["precision"] = 32 #16 if fp16 else 32
             train_params["amp_level"] = fp16_opt_level
-            train_params["amp_backend"] = "apex"
+            train_params["amp_backend"] = "native"
 
         if tpu_cores > 0:
             train_params["tpu_cores"] = tpu_cores
