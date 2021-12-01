@@ -751,7 +751,7 @@ class aitextgen:
     
         print("752")
         print(train_params)
-        train_params["amp_level"] = 'O1'
+        train_params["amp_level"] = "O1"
         train_params["amp_backend"] = "native"
         print(train_params)
         print("xxx")
