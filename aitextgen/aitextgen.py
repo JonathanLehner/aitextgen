@@ -751,11 +751,11 @@ class aitextgen:
     
         print("752")
         print(train_params)
-        train_params["amp_level"] = "O1"
+        train_params["amp_level"] = None
         train_params["amp_backend"] = "native"
         print(train_params)
         print("xxx")
-        trainer = pl.Trainer(**train_params, amp_backend="native", amp_level="O1")
+        trainer = pl.Trainer(**train_params, amp_backend="native", amp_level=None)
         trainer.fit(train_model)
 
         logger.info(f"Saving trained model pytorch_model.bin to /{output_dir}")
